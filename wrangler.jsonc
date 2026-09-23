@@ -1,11 +1,9 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
+  "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "arya-portfolio",
-  "compatibility_date": "2026-09-21",
-  "observability": {
-    "enabled": true,
-  },
+  "compatibility_date": "2026-09-24",
   "assets": {
+    "directory": "./dist",
     "not_found_handling": "single-page-application",
   },
 }
