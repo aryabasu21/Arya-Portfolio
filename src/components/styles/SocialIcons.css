@@ -84,11 +84,21 @@ div.resume-button span {
   z-index: 99999;
 }
 @media only screen and (max-width: 899px) {
+  .icons-section {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  }
+
+  .icons-section.icons-hidden {
+    transform: translate(-50%, 80px);
+    opacity: 0;
+    pointer-events: none;
+  }
+
   .social-icons {
     display: flex;
     flex-direction: row;
     left: 0;
-    bottom: 20px;
+    bottom: 16px;
     gap: 12px;
     background: rgba(10, 14, 23, 0.75);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -133,7 +143,7 @@ div.resume-button span {
   .resume-button {
     transform: none;
     right: 0;
-    bottom: 20px;
+    bottom: 16px;
     font-size: 13px;
     letter-spacing: 1px;
     background: rgba(10, 14, 23, 0.75);

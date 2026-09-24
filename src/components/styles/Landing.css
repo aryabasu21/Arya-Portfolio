@@ -17,15 +17,15 @@
 .landing-circle1 {
   top: 0%;
   left: 0%;
-  z-index: 15;
+  z-index: 0;
   position: fixed;
-  width: 300px;
-  height: 300px;
-  background-color: #22d3ee;
-  box-shadow: inset -50px 40px 50px rgba(0, 180, 180, 0.6);
-  filter: blur(60px);
+  width: 350px;
+  height: 350px;
+  background-color: rgba(34, 211, 238, 0.12);
+  box-shadow: inset -50px 40px 50px rgba(0, 180, 180, 0.15);
+  filter: blur(90px);
   border-radius: 50%;
-  animation: loadingCircle 5s linear infinite;
+  animation: loadingCircle 8s linear infinite;
   pointer-events: none;
 }
 
@@ -57,16 +57,16 @@
   top: 50%;
   right: 0%;
   transform: translate(calc(100% - 2px), -50%);
-  z-index: 9;
+  z-index: 0;
   position: fixed;
   display: none;
   width: 300px;
   height: 300px;
-  background-color: #22d3ee;
-  box-shadow: inset -50px 40px 50px rgba(0, 180, 180, 0.6);
-  filter: blur(50px);
+  background-color: rgba(34, 211, 238, 0.1);
+  box-shadow: inset -50px 40px 50px rgba(0, 180, 180, 0.15);
+  filter: blur(80px);
   border-radius: 50%;
-  animation: loadingCircle2 5s linear infinite;
+  animation: loadingCircle2 8s linear infinite;
   pointer-events: none;
 }
 
@@ -274,9 +274,12 @@ h2.landing-info-h2-sub {
   }
 
   .character-model {
-    height: 52vh;
-    bottom: 50px;
+    height: 62vh;
+    bottom: 35px;
     pointer-events: none !important;
+    z-index: 1;
+    -webkit-mask-image: linear-gradient(to bottom, black 48%, transparent 90%);
+    mask-image: linear-gradient(to bottom, black 48%, transparent 90%);
   }
 
   .character-model canvas {
@@ -288,15 +291,19 @@ h2.landing-info-h2-sub {
     pointer-events: none !important;
   }
 
-  .landing-circle1 {
-    width: 180px;
-    height: 180px;
-    filter: blur(45px);
+  .character-rim {
+    display: none !important;
+  }
+
+  .landing-circle1,
+  .landing-circle2 {
+    display: none !important;
   }
 
   .landing-intro {
-    top: 85px;
+    top: 75px;
     left: 0;
+    z-index: 5;
   }
 
   .landing-intro h2 {
@@ -310,41 +317,37 @@ h2.landing-info-h2-sub {
   }
 
   .landing-info {
-    bottom: 30px;
+    bottom: 75px;
     left: 0;
     right: auto;
     transform: none;
-    width: 100%;
+    width: auto;
     text-align: left;
+    z-index: 5;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
   }
 
   .landing-info h3 {
-    font-size: 15px;
+    font-size: 14px;
     letter-spacing: 1.5px;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
   }
 
   h2.landing-info-h2 {
-    font-size: 28px;
-    line-height: 1.2;
+    font-size: 26px;
+    line-height: 1.15;
     margin: 0;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
 
   h2.landing-info-h2-sub {
-    font-size: 24px;
-    line-height: 1.2;
+    font-size: 22px;
+    line-height: 1.15;
     margin: 0;
   }
 }
 
 @media screen and (min-width: 500px) and (max-width: 1024px) {
-  .landing-circle2 {
-    display: block;
-    width: 200px;
-    height: 200px;
-  }
-
   .landing-intro h1 {
     font-size: 32px;
     line-height: 34px;

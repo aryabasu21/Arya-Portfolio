@@ -104,6 +104,11 @@ body {
   overflow: hidden;
 }
 
+.split-word {
+  display: inline-block;
+  margin-right: 0.28em;
+}
+
 .split-h2 {
   overflow: hidden;
   display: flex;
