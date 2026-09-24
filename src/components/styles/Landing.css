@@ -274,12 +274,14 @@ h2.landing-info-h2-sub {
   }
 
   .character-model {
-    height: 62vh;
-    bottom: 35px;
+    height: 70vh;
+    top: 50%;
+    bottom: auto;
+    transform: translate(-50%, -46%);
     pointer-events: none !important;
     z-index: 1;
-    -webkit-mask-image: linear-gradient(to bottom, black 48%, transparent 90%);
-    mask-image: linear-gradient(to bottom, black 48%, transparent 90%);
+    -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 92%);
+    mask-image: linear-gradient(to bottom, black 55%, transparent 92%);
   }
 
   .character-model canvas {
