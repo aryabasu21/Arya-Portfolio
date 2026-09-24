@@ -63,16 +63,21 @@ main {
   }
 }
 
-html,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  overflow-y: auto;
+}
+
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
-}
-
-body {
+  overflow: visible !important;
   height: auto;
   background-color: #050810;
   flex-grow: 1;
@@ -83,14 +88,19 @@ body {
 .main-body {
   max-width: 100%;
   width: 100%;
-  overflow-x: hidden;
+  overflow: visible;
 }
 
 .container-main {
   width: 100%;
   margin: auto;
   position: relative;
-  overflow-x: hidden;
+  overflow: visible;
+}
+
+#smooth-wrapper,
+#smooth-content {
+  overflow: visible;
 }
 
 .container1 {
