@@ -26,6 +26,7 @@
   filter: blur(60px);
   border-radius: 50%;
   animation: loadingCircle 5s linear infinite;
+  pointer-events: none;
 }
 
 .nav-fade {
@@ -66,6 +67,7 @@
   filter: blur(50px);
   border-radius: 50%;
   animation: loadingCircle2 5s linear infinite;
+  pointer-events: none;
 }
 
 @keyframes loadingCircle2 {
@@ -103,6 +105,7 @@
   left: 50%;
   transform: translate(-50%, 100%) scale(1.4);
   opacity: 0;
+  pointer-events: none;
 }
 
 .character-model {
@@ -121,7 +124,7 @@
 
 .character-model::after {
   content: "";
-  width: 100vw;
+  width: 100%;
   height: 250px;
   background-image: linear-gradient(to bottom,
       transparent,
@@ -131,11 +134,12 @@
   transform: translateX(-50%);
   z-index: 9;
   position: absolute;
+  pointer-events: none;
 }
 
 .character-model::before {
   content: "";
-  width: 100vw;
+  width: 100%;
   height: 700px;
   background-color: var(--backgroundColor);
   top: 100%;
@@ -143,6 +147,7 @@
   transform: translateX(-50%);
   z-index: 9;
   position: absolute;
+  pointer-events: none;
 }
 
 .character-loaded .character-rim {
@@ -203,6 +208,8 @@
   bottom: 40px;
   top: inherit;
   z-index: 9;
+  display: flex;
+  flex-direction: column;
 }
 
 .landing-info h3 {
@@ -211,16 +218,32 @@
   font-weight: 300;
   color: var(--accentColor);
   margin: 0;
+  margin-bottom: 6px;
 }
 
-.landing-info h2 {
+h2.landing-info-h2 {
+  color: #14b8a6;
+  font-size: 42px;
+  line-height: 1.2;
+  width: auto;
   margin: 0;
-  margin-top: -20px;
-  margin-left: 20px;
+  margin-bottom: 12px;
   font-family: "Geist", sans-serif;
   font-weight: 600;
-  font-size: 32px;
-  line-height: 40px;
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h2.landing-info-h2-sub {
+  color: #ffffff;
+  font-size: 34px;
+  line-height: 1.2;
+  margin: 0;
+  font-family: "Geist", sans-serif;
+  font-weight: 600;
   position: relative;
   display: flex;
   flex-wrap: nowrap;
@@ -231,94 +254,147 @@
 .landing-h2-info-1 {
   position: absolute;
   top: 0;
-}
-
-h2.landing-info-h2 {
-  color: #14b8a6;
-  font-size: 42px;
-  width: 120%;
-  margin: 0;
-  font-family: "Geist", sans-serif;
-  font-weight: 600;
-  position: relative;
-  margin-left: -5px;
+  left: 0;
 }
 
 .landing-h2-2 {
   position: absolute;
   top: 0;
-}
-
-.landing-info-h2::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 120%;
-  z-index: 3;
-  background-image: linear-gradient(0deg,
-      var(--backgroundColor) 40%,
-      rgba(0, 0, 0, 0) 110%);
-  top: 0;
   left: 0;
 }
 
-@media screen and (min-width: 500px) {
-  .landing-circle2 {
-    display: block;
+.landing-info-h2::after {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .character-model::after,
+  .character-model::before {
+    display: none !important;
   }
 
   .character-model {
-    z-index: 0;
+    height: 52vh;
+    bottom: 50px;
+    pointer-events: none !important;
   }
 
-  .landing-info h3 {
-    font-size: 18px;
+  .character-model canvas {
+    pointer-events: none !important;
+    touch-action: pan-y !important;
+  }
+
+  .character-hover {
+    pointer-events: none !important;
+  }
+
+  .landing-circle1 {
+    width: 180px;
+    height: 180px;
+    filter: blur(45px);
+  }
+
+  .landing-intro {
+    top: 85px;
+    left: 0;
   }
 
   .landing-intro h2 {
-    font-size: 18px;
+    font-size: 15px;
+    letter-spacing: 1.5px;
   }
 
   .landing-intro h1 {
-    font-size: 30px;
+    font-size: 26px;
     line-height: 30px;
   }
 
-  .landing-info h2 {
-    font-size: 35px;
-    line-height: 40px;
-  }
-
-  h2.landing-info-h2 {
-    font-size: 38px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .character-model {
-    height: 80vh;
-  }
-
-  .landing-intro h2 {
-    font-size: 25px;
-  }
-
-  .landing-intro h1 {
-    font-size: 40px;
-    line-height: 35px;
+  .landing-info {
+    bottom: 30px;
+    left: 0;
+    right: auto;
+    transform: none;
+    width: 100%;
+    text-align: left;
   }
 
   .landing-info h3 {
-    font-size: 25px;
-  }
-
-  .landing-info h2 {
-    font-size: 45px;
-    line-height: 42px;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
   }
 
   h2.landing-info-h2 {
-    font-size: 55px;
+    font-size: 28px;
+    line-height: 1.2;
+    margin: 0;
+    margin-bottom: 6px;
+  }
+
+  h2.landing-info-h2-sub {
+    font-size: 24px;
+    line-height: 1.2;
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 1024px) {
+  .landing-circle2 {
+    display: block;
+    width: 200px;
+    height: 200px;
+  }
+
+  .landing-intro h1 {
+    font-size: 32px;
+    line-height: 34px;
+  }
+
+  .landing-info h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  h2.landing-info-h2 {
+    font-size: 36px;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  h2.landing-info-h2-sub {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .character-model {
+    height: 65vh;
+  }
+
+  .landing-intro h2 {
+    font-size: 22px;
+  }
+
+  .landing-intro h1 {
+    font-size: 38px;
+    line-height: 38px;
+  }
+
+  .landing-info h3 {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+
+  h2.landing-info-h2 {
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+
+  h2.landing-info-h2-sub {
+    font-size: 36px;
+    line-height: 1.2;
   }
 }
 
@@ -344,12 +420,28 @@ h2.landing-info-h2 {
 
   .landing-info {
     bottom: auto;
-    top: 51%;
+    top: 50%;
     z-index: inherit;
     text-align: left;
     transform: translate(0%, -50%);
     right: auto;
     left: 66%;
+  }
+
+  .landing-info h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  h2.landing-info-h2 {
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+
+  h2.landing-info-h2-sub {
+    font-size: 40px;
+    line-height: 1.2;
   }
 }
 
@@ -363,12 +455,28 @@ h2.landing-info-h2 {
 
   .landing-info {
     bottom: auto;
-    top: 51%;
+    top: 50%;
     z-index: inherit;
     text-align: left;
     transform: translate(0%, -50%);
     right: auto;
     left: 70%;
+  }
+
+  .landing-info h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+
+  h2.landing-info-h2 {
+    font-size: 54px;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  h2.landing-info-h2-sub {
+    font-size: 46px;
+    line-height: 1.2;
   }
 }
 
@@ -383,15 +491,18 @@ h2.landing-info-h2 {
   }
 
   .landing-info h3 {
-    font-size: 35px;
-  }
-
-  .landing-info h2 {
-    font-size: 65px;
-    line-height: 62px;
+    font-size: 30px;
+    margin-bottom: 12px;
   }
 
   h2.landing-info-h2 {
-    font-size: 75px;
+    font-size: 68px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  h2.landing-info-h2-sub {
+    font-size: 58px;
+    line-height: 1.2;
   }
 }

@@ -10,17 +10,17 @@
   margin: auto;
 }
 .about-me {
-  padding: 50px 0px;
-  padding-bottom: 0;
-  width: 500px;
-  max-width: calc(100% - 15px);
+  padding: 40px 0px;
+  width: 100%;
+  max-width: 700px;
 }
 .about-me h3 {
-  font-size: 25px;
+  font-size: clamp(20px, 5vw, 25px);
   text-transform: uppercase;
-  letter-spacing: 7px;
+  letter-spacing: clamp(3px, 1.5vw, 7px);
   font-weight: 400;
   color: var(--accentColor);
+  margin-bottom: 20px;
 }
 
 .about-me p {
@@ -32,7 +32,7 @@
 
 .para {
   max-width: 900px;
-  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+  font-size: clamp(1rem, 3.8vw, 1.3rem);
   line-height: 1.8;
   letter-spacing: 0.015em;
   color: #d8d7e0;

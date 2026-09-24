@@ -73,7 +73,12 @@ const Scene = () => {
           window.addEventListener("resize", () =>
             handleResize(renderer, camera, canvasDiv, character)
           );
+        } else {
+          progress.clear();
         }
+      }).catch((err) => {
+        console.error("GLTF load failed, continuing without 3D model:", err);
+        progress.clear();
       });
 
       let mouse = { x: 0, y: 0 },
