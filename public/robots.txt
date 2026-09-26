@@ -1,0 +1,14 @@
+User-agent: *
+
+# Allow crawling of the entire website
+Allow: /
+
+# Explicitly allow important public assets
+Allow: /assets/
+Allow: /images/
+Allow: /models/
+Allow: /favicon.ico
+Allow: /sitemap.xml
+
+# Sitemap
+Sitemap: https://stylnode.in/sitemap.xml

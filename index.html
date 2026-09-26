@@ -1,43 +1,59 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- =========================
+         BASIC
+    ========================== -->
+
     <meta charset="UTF-8" />
 
-    <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Title -->
-    <title>Arya Basu | Portfolio</title>
+    <meta name="theme-color" content="#000000" />
 
-    <!-- SEO -->
+    <!-- =========================
+         PRIMARY SEO
+    ========================== -->
+
+    <title>Stylnode — Web Development & Digital Solutions</title>
+
     <meta
       name="description"
-      content="Portfolio of Arya Basu, a Web Developer specializing in building modern web applications."
+      content="Stylnode builds modern websites, web applications, and digital solutions for businesses, creators, and developers."
     />
 
     <meta
       name="keywords"
-      content="Arya Basu, Web Developer, Frontend Developer, Backend Developer, React, Node.js, JavaScript, MERN"
+      content="Stylnode, Arya Basu, Web Developer, Frontend Developer, Backend Developer, React, Node.js, JavaScript, MERN"
     />
 
     <meta name="author" content="Arya Basu" />
+
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://stylnode.in/" />
 
     <!-- =========================
          FAVICON
     ========================== -->
 
-    <!-- Browser favicon -->
+    <!-- Standard favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-    <!-- PNG favicons -->
+    <!-- 16x16 -->
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 
+    <!-- 32x32 -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 
-    <!-- Apple devices -->
+    <!-- Apple -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-    <!-- Android / PWA icons -->
+    <!-- Android -->
     <link
       rel="icon"
       type="image/png"
@@ -57,7 +73,13 @@
 
     <!-- =========================
          OPEN GRAPH
+         PERSONAL BRANDING
+         AS REQUESTED
     ========================== -->
+
+    <meta property="og:type" content="website" />
+
+    <meta property="og:site_name" content="Stylnode" />
 
     <meta property="og:title" content="Arya Basu | Portfolio" />
 
@@ -66,15 +88,22 @@
       content="Exploring the world of web development and creating amazing user experiences."
     />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://stylnode.in/" />
 
     <meta
       property="og:image"
-      content="/images/Screenshot 2026-09-24 025541.png"
+      content="https://stylnode.in/images/Screenshot%202026-09-24%20025541.png"
+    />
+
+    <meta
+      property="og:image:alt"
+      content="Arya Basu — Web Developer and Creator of Stylnode"
     />
 
     <!-- =========================
          TWITTER / X
+         PERSONAL BRANDING
+         AS REQUESTED
     ========================== -->
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -85,12 +114,74 @@
 
     <meta
       name="twitter:image"
-      content="/images/Screenshot 2026-09-24 025541.png"
+      content="https://stylnode.in/images/Screenshot%202026-09-24%20025541.png"
     />
+
+    <!-- =========================
+         ORGANIZATION STRUCTURED DATA
+    ========================== -->
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://stylnode.in/#organization",
+        "name": "Stylnode",
+        "alternateName": "Stylnode.in",
+        "url": "https://stylnode.in/",
+        "logo": "https://stylnode.in/android-chrome-512x512.png",
+        "description": "Stylnode builds modern websites, web applications, and digital solutions.",
+        "founder": {
+          "@type": "Person",
+          "@id": "https://arya.stylnode.in/#person",
+          "name": "Arya Basu",
+          "url": "https://arya.stylnode.in/"
+        }
+      }
+    </script>
+
+    <!-- =========================
+         PERSON STRUCTURED DATA
+    ========================== -->
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://arya.stylnode.in/#person",
+        "name": "Arya Basu",
+        "url": "https://arya.stylnode.in/",
+        "jobTitle": "Web Developer",
+        "worksFor": {
+          "@id": "https://stylnode.in/#organization"
+        }
+      }
+    </script>
+
+    <!-- =========================
+         WEBSITE STRUCTURED DATA
+    ========================== -->
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://stylnode.in/#website",
+        "url": "https://stylnode.in/",
+        "name": "Stylnode",
+        "alternateName": ["Stylnode", "Stylnode.in"],
+        "publisher": {
+          "@id": "https://stylnode.in/#organization"
+        }
+      }
+    </script>
   </head>
 
   <body>
-    <!-- React root -->
+    <!-- =========================
+         APPLICATION
+    ========================== -->
+
     <div id="root"></div>
 
     <!-- React entry point -->
