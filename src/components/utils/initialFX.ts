@@ -3,7 +3,8 @@ import gsap from "gsap";
 import { smoother } from "../Navbar";
 
 export function initialFX() {
-  document.body.style.overflowY = "auto";
+  document.documentElement.style.overflowY = "auto";
+  document.body.style.overflowY = "visible";
   smoother.paused(false);
   document.getElementsByTagName("main")[0].classList.add("main-active");
   gsap.to("body", {

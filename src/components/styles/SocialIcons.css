@@ -6,6 +6,7 @@
   z-index: 99;
   left: 50%;
   transform: translateX(-50%);
+  pointer-events: none;
 }
 .social-icons {
   position: absolute;
@@ -16,6 +17,7 @@
   gap: 8px;
   z-index: 999;
   padding: 10px;
+  pointer-events: auto;
 }
 .social-icons:hover {
   transition: 0.3s;
@@ -23,7 +25,6 @@
 }
 .social-icons a:hover {
   color: var(--backgroundColor);
-  /* transform: scale(1.2); */
 }
 .social-icons span {
   width: 50px;
@@ -61,6 +62,7 @@
   transition: 0.5s;
   transform-origin: left bottom;
   transform: translateX(100%) rotateZ(-90deg);
+  pointer-events: auto;
 }
 .resume-button:hover {
   color: #fff;
@@ -82,12 +84,48 @@ div.resume-button span {
   z-index: 99999;
 }
 @media only screen and (max-width: 899px) {
+  .icons-section {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  }
+
+  .icons-section.icons-hidden {
+    transform: translate(-50%, 80px);
+    opacity: 0;
+    pointer-events: none;
+  }
+
   .social-icons {
     display: flex;
     flex-direction: row;
     left: 0;
-    bottom: 40px;
-    gap: 15px;
+    bottom: 16px;
+    gap: 12px;
+    background: rgba(10, 14, 23, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    padding: 6px 14px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    align-items: center;
+  }
+
+  .social-icons span {
+    width: 28px;
+    height: 28px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .social-icons a {
+    font-size: 16px;
+    position: static;
+    transform: none;
+    color: #eae5ec;
+  }
+
+  .social-icons a:hover {
+    color: var(--accentColor);
   }
 }
 
@@ -105,9 +143,22 @@ div.resume-button span {
   .resume-button {
     transform: none;
     right: 0;
-    bottom: 40px;
-    font-size: 14px;
-    letter-spacing: 2px;
+    bottom: 16px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    background: rgba(10, 14, 23, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    padding: 10px 16px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    color: #eae5ec;
+    align-items: center;
+  }
+
+  div.resume-button span {
+    font-size: 15px;
   }
 }
 

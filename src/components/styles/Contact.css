@@ -92,9 +92,13 @@ a.contact-social {
 }
 
 @media only screen and (max-width: 900px) {
+  .contact-section h3 {
+    font-size: clamp(32px, 8.5vw, 42px);
+  }
+
   .contact-flex {
     flex-direction: column;
-    gap: 40px;
+    gap: 32px;
   }
 
   .contact-flex p {
@@ -102,15 +106,21 @@ a.contact-social {
   }
 
   .contact-flex h4 {
-    margin-top: 20px;
+    margin-top: 10px;
+    font-size: 14px;
   }
 
   .contact-section {
-    margin-top: 50px;
-    padding-bottom: 50px;
+    margin-top: 40px;
+    padding-bottom: 120px;
   }
 
   .contact-container {
-    width: calc(100% - 25px);
+    width: 100%;
+  }
+
+  .contact-box h2 {
+    font-size: 18px;
+    line-height: 1.4;
   }
 }
