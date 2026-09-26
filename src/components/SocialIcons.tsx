@@ -1,30 +1,10 @@
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import { TbNotes } from "react-icons/tb";
-import { useEffect, useState, useRef } from "react";
-import HoverLinks from "./HoverLinks";
 import "./styles/SocialIcons.css";
+import { TbNotes } from "react-icons/tb";
+import { useEffect } from "react";
+import HoverLinks from "./HoverLinks";
 
 const SocialIcons = () => {
-  const [isVisible, setIsVisible] = useState(true);
-  const lastScrollY = useRef(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY < 60) {
-        setIsVisible(true);
-      } else if (currentScrollY > lastScrollY.current + 8) {
-        setIsVisible(false);
-      } else if (currentScrollY < lastScrollY.current - 8) {
-        setIsVisible(true);
-      }
-      lastScrollY.current = currentScrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   useEffect(() => {
     const social = document.getElementById("social") as HTMLElement;
 
@@ -72,7 +52,7 @@ const SocialIcons = () => {
   }, []);
 
   return (
-    <div className={`icons-section ${!isVisible ? "icons-hidden" : ""}`}>
+    <div className="icons-section">
       <div className="social-icons" data-cursor="icons" id="social">
         <span>
           <a

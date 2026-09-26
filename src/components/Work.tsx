@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import "./styles/Work.css";
 import WorkImage from "./WorkImage";
-import { MdArrowBack, MdArrowForward, MdArrowOutward } from "react-icons/md";
+import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
@@ -38,8 +38,6 @@ const projects = [
 const Work = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [touchStartX, setTouchStartX] = useState<number | null>(null);
-  const [touchEndX, setTouchEndX] = useState<number | null>(null);
 
   const goToSlide = useCallback(
     (index: number) => {
@@ -63,25 +61,6 @@ const Work = () => {
     goToSlide(newIndex);
   }, [currentIndex, goToSlide]);
 
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchEndX(null);
-    setTouchStartX(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    setTouchEndX(e.targetTouches[0].clientX);
-  };
-
-  const handleTouchEnd = () => {
-    if (!touchStartX || !touchEndX) return;
-    const distance = touchStartX - touchEndX;
-    if (distance > 50) {
-      goToNext();
-    } else if (distance < -50) {
-      goToPrev();
-    }
-  };
-
   return (
     <div className="work-section" id="work">
       <div className="work-container section-container">
@@ -90,13 +69,26 @@ const Work = () => {
         </h2>
 
         <div className="carousel-wrapper">
-          {/* Slides */}
-          <div
-            className="carousel-track-container"
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
+          {/* Navigation Arrows */}
+          <button
+            className="carousel-arrow carousel-arrow-left"
+            onClick={goToPrev}
+            aria-label="Previous project"
+            data-cursor="disable"
           >
+            <MdArrowBack />
+          </button>
+          <button
+            className="carousel-arrow carousel-arrow-right"
+            onClick={goToNext}
+            aria-label="Next project"
+            data-cursor="disable"
+          >
+            <MdArrowForward />
+          </button>
+
+          {/* Slides */}
+          <div className="carousel-track-container">
             <div
               className="carousel-track"
               style={{
@@ -120,17 +112,6 @@ const Work = () => {
                           <span className="tools-label">Tools & Features</span>
                           <p>{project.tools}</p>
                         </div>
-                        {project.link && (
-                          <a
-                            href={project.link}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="carousel-mobile-link"
-                          >
-                            <span>Live Project</span>
-                            <MdArrowOutward />
-                          </a>
-                        )}
                       </div>
                     </div>
                     <div className="carousel-image-wrapper">
@@ -146,39 +127,19 @@ const Work = () => {
             </div>
           </div>
 
-          {/* Navigation Controls */}
-          <div className="carousel-nav">
-            <button
-              className="carousel-arrow carousel-arrow-left"
-              onClick={goToPrev}
-              aria-label="Previous project"
-              data-cursor="disable"
-            >
-              <MdArrowBack />
-            </button>
-
-            <div className="carousel-dots">
-              {projects.map((_, index) => (
-                <button
-                  key={index}
-                  className={`carousel-dot ${
-                    index === currentIndex ? "carousel-dot-active" : ""
-                  }`}
-                  onClick={() => goToSlide(index)}
-                  aria-label={`Go to project ${index + 1}`}
-                  data-cursor="disable"
-                />
-              ))}
-            </div>
-
-            <button
-              className="carousel-arrow carousel-arrow-right"
-              onClick={goToNext}
-              aria-label="Next project"
-              data-cursor="disable"
-            >
-              <MdArrowForward />
-            </button>
+          {/* Dot Indicators */}
+          <div className="carousel-dots">
+            {projects.map((_, index) => (
+              <button
+                key={index}
+                className={`carousel-dot ${
+                  index === currentIndex ? "carousel-dot-active" : ""
+                }`}
+                onClick={() => goToSlide(index)}
+                aria-label={`Go to project ${index + 1}`}
+                data-cursor="disable"
+              />
+            ))}
           </div>
         </div>
       </div>
