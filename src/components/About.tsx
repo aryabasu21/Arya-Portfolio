@@ -4,9 +4,7 @@ const About = () => {
   return (
     <div className="about-section" id="about">
       <div className="about-me">
-        <h3 className="title">
-          <span>About</span> <span>Me</span>
-        </h3>
+        <h3 className="title">About Me</h3>
         <p className="para">
           I'm a <strong>Full Stack Web Developer</strong> from Kolkata, India,
           building scalable and production-ready web applications.
